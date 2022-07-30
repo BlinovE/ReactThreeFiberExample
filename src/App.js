@@ -15,6 +15,8 @@ function App() {
   return (
     <div id="canvas-container">
       <Canvas camera={{ fov: 60, near: 1, far: 3, position: [0, 0, 2] }}>
+        <ambientLight intensity={0.1} />
+        <directionalLight />
         <MyAnimatedBox/>
         {/* <CameraHelper />
         <ambientLight intensity={0.1} />
