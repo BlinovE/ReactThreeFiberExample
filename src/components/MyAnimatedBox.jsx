@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { useSpring, animated, config } from "@react-spring/three";
+
+function MySpringBox() {
+  const [active, setActive] = useState("false");
+  const myMesh = useRef();
+  const spring = useSpring({ scale: active ? 1.5 : 1, config: config.wobbly });
+
+  return (
+    <animated.mesh
+      scale={spring.scale}
+      onClick={(e) => setActive(!active)}
+      ref={myMesh}
+    >
+      <boxGeometry />
+      <meshPhongMaterial color="green" />
+    </animated.mesh>
+  );
+}
 
 function MyAnimatedBox() {
   const [active, setActive] = useState(false);
-  const [materialColor, setMaterialColor] = useState("royalblue")
+  const [materialColor, setMaterialColor] = useState("royalblue");
 
   return (
     <mesh
@@ -15,10 +33,10 @@ function MyAnimatedBox() {
         console.log("Out");
       }}
       onWheel={(e) => {
-        if( e.wheelDeltaY > 0){
-            setMaterialColor("red");
-        }else{
-            setMaterialColor("blue");
+        if (e.wheelDeltaY > 0) {
+          setMaterialColor("red");
+        } else {
+          setMaterialColor("blue");
         }
       }}
     >
@@ -28,4 +46,4 @@ function MyAnimatedBox() {
   );
 }
 
-export default MyAnimatedBox;
+export { MyAnimatedBox, MySpringBox };

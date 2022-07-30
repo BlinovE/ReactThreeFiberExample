@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from "@react-three/fiber";
-import MyAnimatedBox from "./components/MyAnimatedBox";
+import {MyAnimatedBox, MySpringBox} from "./components/MyAnimatedBox";
 
 function AnimateRotateXYZMesh(){
   const animateYMesh = useRef();
@@ -22,7 +22,7 @@ function App() {
       <Canvas camera={{ fov: 60, near: 1, far: 3, position: [0, 0, 2] }}>
         <ambientLight intensity={0.1} />
         <directionalLight />
-        <AnimateRotateXYZMesh />        
+        <MySpringBox/>
       </Canvas>
     </div>
   );
