@@ -2,47 +2,28 @@ import React, { useState } from "react";
 
 function MyAnimatedBox() {
   const [active, setActive] = useState(false);
+  const [materialColor, setMaterialColor] = useState("royalblue")
 
   return (
     <mesh
       scale={active ? 1.5 : 1}
       onClick={() => setActive(!active)}
-      onDoubleClick={(e)=>{
-        console.log("DblClick")
-      }}
       onPointerOver={(e) => {
         console.log("Over");
       }}
-      onPointerOut={(e)=>{
-        console.log("Out")
+      onPointerOut={(e) => {
+        console.log("Out");
       }}
-      onPointerEnter={(e)=>{
-        console.log("Enter")
-      }}
-      onPointerLeave={(e)=>{
-        console.log("Leave")
-      }}
-      onPointerMissed={(e)=>{
-        console.log("Missed")
-      }}
-      onPointerMove={(e)=>{
-        console.log("move")
-      }}
-      onPointerUp={(e)=>{
-        console.log("Up")
-      }}
-      onPointerDown={(e)=>{
-        console.log("Down")
-      }}
-      onWheel={(e)=>{
-        console.log("Wheel")
-      }}
-      onContextMenu={(e)=>{
-        console.log("Menu")
+      onWheel={(e) => {
+        if( e.wheelDeltaY > 0){
+            setMaterialColor("red");
+        }else{
+            setMaterialColor("blue");
+        }
       }}
     >
       <boxGeometry />
-      <meshPhongMaterial color="royalblue" />
+      <meshPhongMaterial color={materialColor} />
     </mesh>
   );
 }
