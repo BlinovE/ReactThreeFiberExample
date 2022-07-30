@@ -5,9 +5,7 @@ import MyAnimatedBox from "./components/MyAnimatedBox";
 function AnimateRotateXYZMesh(){
   const animateYMesh = useRef();
   useFrame(({clock})=>{
-    animateYMesh.current.rotation.x = Math.sin(clock.getElapsedTime());
-    animateYMesh.current.rotation.y = Math.tan(clock.getElapsedTime());
-    animateYMesh.current.rotation.z = Math.sin(clock.getElapsedTime());
+    animateYMesh.current.rotation.x = Math.sin(clock.getElapsedTime());    
   });
   return (
     <mesh ref={animateYMesh}>
