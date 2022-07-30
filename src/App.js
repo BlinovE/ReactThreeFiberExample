@@ -1,6 +1,6 @@
-import ReactDOM from "react-dom";
 import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera } from "three";
+import MyAnimatedBox from "./components/MyAnimatedBox";
 
 function CameraHelper() {
   const camera = new PerspectiveCamera(60, 1, 1, 2);
@@ -15,7 +15,8 @@ function App() {
   return (
     <div id="canvas-container">
       <Canvas camera={{ fov: 60, near: 1, far: 3, position: [0, 0, 2] }}>
-        <CameraHelper />
+        <MyAnimatedBox/>
+        {/* <CameraHelper />
         <ambientLight intensity={0.1} />
         <directionalLight color="red" position={[1, 2, 5]} />
         <mesh
@@ -25,7 +26,7 @@ function App() {
         >
           <boxGeometry args={[1, 1, 1]} />
           <meshStandardMaterial />
-        </mesh>
+        </mesh> */}
       </Canvas>
     </div>
   );
