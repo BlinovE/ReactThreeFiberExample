@@ -1,19 +1,7 @@
-import React,{ useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-
+import React from 'react';
 function MyAnimatedBox(){
-    const myMesh = useRef();
-
-    useFrame(({ clock })=>{
-        const a = clock.getElapsedTime();
-        console.log(`Elapsed Time: ${a}`);
-        myMesh.current.rotation.x = clock.getElapsedTime();
-    });
-
-    
-
     return (
-        <mesh ref={myMesh}>
+        <mesh>
             <boxGeometry />
             <meshPhongMaterial color="royalblue" />
         </mesh>
