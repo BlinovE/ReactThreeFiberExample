@@ -1,20 +1,14 @@
-import React, { useRef, useState} from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import React, { useRef, useState } from "react";
 import { useSpring, animated, config } from "@react-spring/three";
 
-function MySpringBox({position}) {
+function MySpringBox({ position }) {
   const [active, setActive] = useState("false");
   const myMesh = useRef();
   const spring = useSpring({ scale: active ? 1.5 : 1, config: config.wobbly });
-  
-//   const state = useThree()
-//   useFrame(({clock})=>{
-//     console.log(`Mouse: ${state.mouse.x} : ${state.mouse.y}`)
-//   })
 
   return (
     <animated.mesh
-        position={[...position]}
+      position={[...position]}
       scale={spring.scale}
       onClick={(e) => setActive(!active)}
       ref={myMesh}
